@@ -1,0 +1,14 @@
+{% load templatetools %}
+
+{% if list_of_links %}
+<ul>
+    {% for link in list_of_links %}
+    <li class="{{ forloop|get_position_class }}">
+    {% if link.is_current %}
+        <span class="selected">{{ link.verbose_name }}</span>
+    {% else %}
+        <a href="{{ link.href }}">{{ link.verbose_name }}</a>
+    {% endif %}
+    </li>
+</ul>
+{% endif %}
